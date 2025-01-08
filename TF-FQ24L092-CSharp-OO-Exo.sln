@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{17E0D777
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Heritage01", "Demo-Heritage01\Demo-Heritage01.csproj", "{3B62E26D-4B59-49E9-AF87-6C573664D76C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-Polymorphisme01", "Demo-Polymorphisme01\Demo-Polymorphisme01.csproj", "{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +25,17 @@ Global
 		{3B62E26D-4B59-49E9-AF87-6C573664D76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B62E26D-4B59-49E9-AF87-6C573664D76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B62E26D-4B59-49E9-AF87-6C573664D76C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3B62E26D-4B59-49E9-AF87-6C573664D76C} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
+		{FCF06F9C-C209-4CDE-9F1D-F72DA31229A0} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {303CC111-AF36-4476-BFB6-5D0739609A41}
