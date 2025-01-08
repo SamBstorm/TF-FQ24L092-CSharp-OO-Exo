@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exo_Banque.Models
 {
-    public class Courant : Compte
+    public sealed class Courant : Compte
     {       
 
         private double _ligneCredit = 15;

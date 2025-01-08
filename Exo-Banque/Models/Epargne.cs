@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exo_Banque.Models
 {
-    public class Epargne : Compte
+    public sealed class Epargne : Compte
     {
         public DateTime? DateDernierRetrait { get; set; }
         
