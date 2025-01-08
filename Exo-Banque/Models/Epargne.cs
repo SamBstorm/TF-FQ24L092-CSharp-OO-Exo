@@ -10,7 +10,7 @@ namespace Exo_Banque.Models
     {
         public DateTime? DateDernierRetrait { get; set; }
         
-        public void Retrait(double montant)
+        public override void Retrait(double montant)
         {
             
             if (Solde < montant) throw new InvalidOperationException("Le montant est trop élévé par rapport au solde.");

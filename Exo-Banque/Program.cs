@@ -34,8 +34,9 @@ namespace Exo_Banque
 
             bank.Ajouter(c1);
             bank.Ajouter(c2);
+            bank.Ajouter(e1);
 
-            Courant compteTraite = bank["BE01"];
+            Compte compteTraite = bank["BE01"];
             compteTraite.Depot(1500);
 
             Console.WriteLine($"Le titulaire du compte BE01 est {compteTraite.Titulaire.Nom}.");
@@ -53,19 +54,26 @@ namespace Exo_Banque
             compteTraite.Retrait(700);
             Console.WriteLine($"Le Solde du compte BE02 est {compteTraite.Solde} €.");
 
-            Console.WriteLine($"Si je calcule les avoirs de Jhon Doe, il aura : {bank.AvoirDesComptes(c1.Titulaire)} €.");
+            compteTraite = bank["BE03"];
 
-            e1.Depot(500);
+            compteTraite.Depot(500);
 
-            Console.WriteLine($"Le titulaire du compte BE03 est {e1.Titulaire.Nom}.");
-            Console.WriteLine($"Le Solde du compte BE03 est {e1.Solde} €.");
+            Console.WriteLine($"Le titulaire du compte BE03 est {compteTraite.Titulaire.Nom}.");
+            Console.WriteLine($"Le Solde du compte BE03 est {compteTraite.Solde} €.");
 
-            e1.Retrait(200);
-            Console.WriteLine($"Le Solde du compte BE03 est {e1.Solde} €.");
-            if(e1.DateDernierRetrait is not null)
+            compteTraite.Retrait(200);
+            Console.WriteLine($"Le Solde du compte BE03 est {compteTraite.Solde} €.");
+            if(compteTraite is Epargne epargneTraite)
             {
-                Console.WriteLine($"Le dernier retrait date de {e1.DateDernierRetrait?.ToShortDateString()} {e1.DateDernierRetrait?.ToShortTimeString()}.");
+                if(epargneTraite.DateDernierRetrait is not null)
+                {
+                    Console.WriteLine($"Le dernier retrait date de {epargneTraite.DateDernierRetrait?.ToShortDateString()} {epargneTraite.DateDernierRetrait?.ToShortTimeString()}.");
+                }
             }
+
+
+
+            Console.WriteLine($"Si je calcule les avoirs de Jhon Doe, il aura : {bank.AvoirDesComptes(c1.Titulaire)} €.");
         }
     }
 }
