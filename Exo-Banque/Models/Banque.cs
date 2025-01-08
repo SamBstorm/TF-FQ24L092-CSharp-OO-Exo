@@ -37,5 +37,17 @@ namespace Exo_Banque.Models
             Comptes.Remove(numero);
         }
 
+        public double AvoirDesComptes(Personne titulaire)
+        {
+            double soldeAvoirs = 0;
+            foreach (KeyValuePair<string,Courant> kvpNumeroCompte in Comptes)
+            {
+                if(kvpNumeroCompte.Value.Titulaire == titulaire)
+                {
+                    soldeAvoirs += kvpNumeroCompte.Value;
+                }
+            }
+            return soldeAvoirs;
+        }
     }
 }

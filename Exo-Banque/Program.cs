@@ -18,17 +18,36 @@ namespace Exo_Banque
             };
             c1.Numero = "BE01";
 
+            Courant c2 = new Courant() { 
+                Numero = "BE02",
+                LigneCredit = 200,
+                Titulaire = c1.Titulaire
+            };
+
             Banque bank = new Banque();
 
             bank.Ajouter(c1);
+            bank.Ajouter(c2);
+
             Courant compteTraite = bank["BE01"];
             compteTraite.Depot(1500);
 
             Console.WriteLine($"Le titulaire du compte BE01 est {compteTraite.Titulaire.Nom}.");
             Console.WriteLine($"Le Solde du compte BE01 est {compteTraite.Solde} €.");
 
-            compteTraite.Retrait(2000);
+            compteTraite.Retrait(1600);
             Console.WriteLine($"Le Solde du compte BE01 est {compteTraite.Solde} €.");
+
+            compteTraite = bank["BE02"];
+            compteTraite.Depot(1500);
+
+            Console.WriteLine($"Le titulaire du compte BE02 est {compteTraite.Titulaire.Nom}.");
+            Console.WriteLine($"Le Solde du compte BE02 est {compteTraite.Solde} €.");
+
+            compteTraite.Retrait(700);
+            Console.WriteLine($"Le Solde du compte BE02 est {compteTraite.Solde} €.");
+
+            Console.WriteLine($"Si je calcule les avoirs de Jhon Doe, il aura : {bank.AvoirDesComptes(c1.Titulaire)} €.");
         }
     }
 }
