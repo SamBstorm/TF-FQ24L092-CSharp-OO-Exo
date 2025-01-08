@@ -74,6 +74,14 @@ namespace Exo_Banque
 
 
             Console.WriteLine($"Si je calcule les avoirs de Jhon Doe, il aura : {bank.AvoirDesComptes(c1.Titulaire)} €.");
+
+            string[] numeros = ["BE01", "BE02", "BE03"];
+            foreach (string numero in numeros)
+            {
+                Compte compteAvecInteret = bank[numero];
+                compteAvecInteret.AppliquerInteret();
+                Console.WriteLine($"Le Solde du compte {numero} après intérêt est {compteAvecInteret.Solde} €.");
+            }
         }
     }
 }

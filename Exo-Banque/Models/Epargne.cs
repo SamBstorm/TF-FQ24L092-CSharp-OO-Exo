@@ -18,6 +18,9 @@ namespace Exo_Banque.Models
             DateDernierRetrait = DateTime.Now;
         }
 
-        
+        protected override double CalculInteret()
+        {
+            return Solde * 0.045;
+        }
     }
 }

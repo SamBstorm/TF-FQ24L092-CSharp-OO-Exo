@@ -26,5 +26,12 @@ namespace Exo_Banque.Models
             base.Retrait(montant);
         }
 
+        protected override double CalculInteret()
+        {
+            if (Solde < 0) return Solde * 0.0975;
+            else return Solde * 0.03;
+
+            //return (Solde < 0) ? Solde * 0.0975 : Solde * 0.03;
+        }
     }
 }

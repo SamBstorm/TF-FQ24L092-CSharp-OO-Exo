@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exo_Banque.Models
 {
-    public class Compte
+    public abstract class Compte
     {
         public string Numero { get; set; }
         public double Solde { get; private set; }
@@ -22,6 +22,13 @@ namespace Exo_Banque.Models
             if (montant <= 0) throw new ArgumentException(nameof(montant), "Le montant doit être supérieur à 0.");
             Solde += montant;
         }
+
+        public void AppliquerInteret()
+        {
+            Solde += CalculInteret();
+        }
+        protected abstract double CalculInteret();
+
         public static double operator +(Compte left, Compte right)
         {
             /*
