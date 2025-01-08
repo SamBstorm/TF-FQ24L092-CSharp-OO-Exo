@@ -24,6 +24,12 @@ namespace Exo_Banque
                 Titulaire = c1.Titulaire
             };
 
+            Epargne e1 = new Epargne()
+            {
+                Numero = "BE03",
+                Titulaire = c1.Titulaire
+            };
+
             Banque bank = new Banque();
 
             bank.Ajouter(c1);
@@ -48,6 +54,18 @@ namespace Exo_Banque
             Console.WriteLine($"Le Solde du compte BE02 est {compteTraite.Solde} €.");
 
             Console.WriteLine($"Si je calcule les avoirs de Jhon Doe, il aura : {bank.AvoirDesComptes(c1.Titulaire)} €.");
+
+            e1.Depot(500);
+
+            Console.WriteLine($"Le titulaire du compte BE03 est {e1.Titulaire.Nom}.");
+            Console.WriteLine($"Le Solde du compte BE03 est {e1.Solde} €.");
+
+            e1.Retrait(200);
+            Console.WriteLine($"Le Solde du compte BE03 est {e1.Solde} €.");
+            if(e1.DateDernierRetrait is not null)
+            {
+                Console.WriteLine($"Le dernier retrait date de {e1.DateDernierRetrait?.ToShortDateString()} {e1.DateDernierRetrait?.ToShortTimeString()}.");
+            }
         }
     }
 }

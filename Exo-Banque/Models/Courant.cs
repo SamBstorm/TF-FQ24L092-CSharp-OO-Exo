@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Exo_Banque.Models
 {
-    public class Courant
-    {
-        public string Numero { get; set; } = string.Empty;
-
-        public double Solde { get; private set; }
+    public class Courant : Compte
+    {       
 
         private double _ligneCredit = 15;
 
@@ -21,26 +18,14 @@ namespace Exo_Banque.Models
             {
                 _ligneCredit = double.Clamp(value, 0, double.MaxValue);
             }
-        }
+        }        
 
-        public Personne? Titulaire { get; set; }
-
-        public void Retrait(double montant)
+        public override void Retrait(double montant)
         {
-            if (0 - LigneCredit <= Solde - montant) { 
-                Solde -= montant;
-            }
-            else
-            {
-                throw new Exception("Le solde depasse le montant autorisé par le crédit.");
-            }
-            
+            if (-LigneCredit > Solde - montant) throw new Exception("Le solde depasse le montant autorisé par le crédit.");
+            base.Retrait(montant);
         }
 
-        public void Depot(double montant)
-        {
-            Solde += montant;
-        }
 
         public static double operator +(Courant left, Courant right)
         {
