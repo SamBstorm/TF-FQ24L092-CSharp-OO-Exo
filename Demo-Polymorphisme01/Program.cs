@@ -36,6 +36,8 @@ namespace Demo_Polymorphisme01
 
             ObjetQuete cle = new ObjetQuete() { Nom = "Clé du donjon" };
 
+            ObjetInventaire oi = new ObjetSoin();
+
             joueur.Ramasser(e);
             joueur.Ramasser(e1);
             joueur.Ramasser(potion);

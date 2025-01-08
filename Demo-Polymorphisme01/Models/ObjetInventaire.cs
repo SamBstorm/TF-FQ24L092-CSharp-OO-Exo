@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Demo_Polymorphisme01.Models
 {
-    public class ObjetInventaire
+    public abstract class ObjetInventaire
     {
         public string Nom { get; set; }
-        public virtual void Utiliser()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void Utiliser();
     }
 }
