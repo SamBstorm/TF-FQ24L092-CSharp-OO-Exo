@@ -6,6 +6,8 @@ namespace Demo_Polymorphisme01
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+
             Joueur joueur = new Joueur();
 
             Equipement e = new Equipement() { 
@@ -39,6 +41,37 @@ namespace Demo_Polymorphisme01
             joueur.Ramasser(potion);
             joueur.Ramasser(potion1);
             joueur.Ramasser(cle);
+
+            foreach (ObjetInventaire obj in joueur.Inventaire )
+            {
+                /*
+                if (obj is ObjetQuete)
+                {
+                    Console.WriteLine($"🗝️ : {obj.Nom}");
+                }
+                else if (obj is ObjetSoin soin)
+                {
+                    //ObjetSoin soin = (ObjetSoin)obj;
+                    Console.WriteLine($"🍶 : {soin.Nom} - {soin.Bonus}");
+                }
+                else if (obj is Equipement equipement) { 
+                    //Equipement equipement = (Equipement)obj;
+                    Console.WriteLine($"⚔️ : {equipement.Nom} - {equipement.Bonus} - {(equipement.EstEquipe?"✔️":"⏹️")}");
+                }*/
+
+                switch (obj)
+                {
+                    case ObjetQuete:
+                        Console.WriteLine($"🗝️ : {obj.Nom}");
+                        break;
+                    case ObjetSoin soin:
+                        Console.WriteLine($"🍶 : {soin.Nom} - {soin.Bonus}");
+                        break;
+                    case Equipement equipement:
+                        Console.WriteLine($"⚔️ : {equipement.Nom} - {equipement.Bonus} - {(equipement.EstEquipe ? "✔️" : "⏹️")}");
+                        break;
+                }
+            }
 
             joueur.Utiliser(cle);
             joueur.Utiliser(e);

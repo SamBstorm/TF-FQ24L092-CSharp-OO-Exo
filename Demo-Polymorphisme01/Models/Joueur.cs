@@ -13,6 +13,11 @@ namespace Demo_Polymorphisme01.Models
 
         private List<ObjetInventaire> _inventaire = new List<ObjetInventaire>();
 
+        public ObjetInventaire[] Inventaire
+        {
+            get { return _inventaire.ToArray() ?? new ObjetInventaire[0];}
+        }
+
         public void Ramasser(ObjetInventaire objet)
         {
             _inventaire.Add(objet);
