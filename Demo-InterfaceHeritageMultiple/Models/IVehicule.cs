@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo_InterfaceFiltre.Models
+namespace Demo_InterfaceHeritageMultiple.Models
 {
-    internal interface IVisiteur
+    internal interface IVehicule
     {
-        string Nom { get; }
-        void Sejourner(Personne p);
     }
 }

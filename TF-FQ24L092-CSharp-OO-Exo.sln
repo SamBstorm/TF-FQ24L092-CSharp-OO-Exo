@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-InterfaceAbstraction",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-InterfaceFiltre", "Demo-InterfaceFiltre\Demo-InterfaceFiltre.csproj", "{13D7A4CD-E858-4EDC-9E91-B8F29AE33437}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo-InterfaceHeritageMultiple", "Demo-InterfaceHeritageMultiple\Demo-InterfaceHeritageMultiple.csproj", "{D93C905E-32AD-4645-9619-4E04B0AC7F9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{13D7A4CD-E858-4EDC-9E91-B8F29AE33437}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13D7A4CD-E858-4EDC-9E91-B8F29AE33437}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13D7A4CD-E858-4EDC-9E91-B8F29AE33437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93C905E-32AD-4645-9619-4E04B0AC7F9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93C905E-32AD-4645-9619-4E04B0AC7F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93C905E-32AD-4645-9619-4E04B0AC7F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93C905E-32AD-4645-9619-4E04B0AC7F9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{FF11816B-1F27-420C-B016-18105D3A2C02} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
 		{2C557147-B06E-4E29-893C-6110582CB071} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
 		{13D7A4CD-E858-4EDC-9E91-B8F29AE33437} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
+		{D93C905E-32AD-4645-9619-4E04B0AC7F9E} = {17E0D777-8214-4DBC-8088-17C80F0E4465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {303CC111-AF36-4476-BFB6-5D0739609A41}

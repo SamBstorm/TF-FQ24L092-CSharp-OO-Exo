@@ -32,25 +32,33 @@ namespace Demo_InterfaceFiltre
                 {
                     if(j == prop.Proprietaire)
                     {
-                        Console.WriteLine($"Vous êtes chez vous! ({prop.Nom})");
-                        Console.WriteLine($"Que voulez-vous faire?");
-                        IProprietaire p = prop;
-                        Console.WriteLine($"Changer l'hypothèque? (La propriété {(p.EstHypotequee ? "est déjà" : "n'est pas")} hypotéquée)");
-                        string answer = Console.ReadLine();
-                        if( answer == "oui")
-                        {
-                            p.ChangerHypoteque();
-                            Console.WriteLine("Changement effectué.");
-                        }
+                        ActionProprietaire(prop);
                     }
                     else
                     {
-                        Console.WriteLine($"Vous êtes arrivé à ({prop.Nom}). Reposez-vous!");
-                        IVisiteur p = prop;
-                        p.Sejourner(j);
+                        ActionVisiteur(j, prop);
                     }
                 }
             }
+        }
+
+        static void ActionProprietaire(IProprietaire propriete)
+        {
+            Console.WriteLine($"Vous êtes chez vous! ({propriete.Nom})");
+            Console.WriteLine($"Que voulez-vous faire?");
+            Console.WriteLine($"Changer l'hypothèque? (La propriété {(propriete.EstHypotequee ? "est déjà" : "n'est pas")} hypotéquée)");
+            string answer = Console.ReadLine();
+            if (answer == "oui")
+            {
+                propriete.ChangerHypoteque();
+                Console.WriteLine("Changement effectué.");
+            }
+        }
+
+        static void ActionVisiteur(Personne visiteur, IVisiteur propriete)
+        {
+            Console.WriteLine($"Vous êtes arrivé à ({propriete.Nom}). Reposez-vous!");
+            propriete.Sejourner(visiteur);
         }
     }
 }

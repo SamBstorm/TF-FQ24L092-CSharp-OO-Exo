@@ -8,6 +8,7 @@ namespace Demo_InterfaceFiltre.Models
 {
     internal interface IProprietaire
     {
+        string Nom { get; }
         bool EstHypotequee { get; }
         void ChangerHypoteque();
     }
