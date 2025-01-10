@@ -19,6 +19,37 @@ namespace Exo_Banque.Models
             }
         }
 
+        public Personne? this[string first_name, string last_name, DateTime birth_date]
+        {
+            get {
+                foreach (KeyValuePair<string, Compte> kvp_compte in Comptes)
+                {
+                    Compte c = kvp_compte.Value;
+                    if (first_name == c.Titulaire.Prenom 
+                        && last_name == c.Titulaire.Nom 
+                        && birth_date == c.Titulaire.DateNaiss)
+                        return c.Titulaire;
+                }
+                return null;
+            }
+        }
+
+        public Personne? this[Personne client]
+        {
+            get
+            {
+                foreach (KeyValuePair<string, Compte> kvp_compte in Comptes)
+                {
+                    Compte c = kvp_compte.Value;
+                    if (client.Prenom == c.Titulaire.Prenom 
+                        && client.Nom == c.Titulaire.Nom 
+                        && client.DateNaiss == c.Titulaire.DateNaiss)
+                        return c.Titulaire;
+                }
+                return null;
+            }
+        }
+
         public void Ajouter(Compte courant)
         {
             if (!String.IsNullOrWhiteSpace(courant.Numero))
@@ -48,6 +79,19 @@ namespace Exo_Banque.Models
                 }
             }
             return soldeAvoirs;
+        }
+
+        public ICustomer[] ComptesClient(Personne titulaire)
+        {
+            List<ICustomer> comptes = new List<ICustomer>();
+            foreach (KeyValuePair<string, Compte> kvpNumeroCompte in Comptes)
+            {
+                if (kvpNumeroCompte.Value.Titulaire == titulaire)
+                {
+                    comptes.Add(kvpNumeroCompte.Value);
+                }
+            }
+            return comptes.ToArray();
         }
     }
 }

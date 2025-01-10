@@ -36,7 +36,7 @@ namespace Exo_Banque
             bank.Ajouter(c2);
             bank.Ajouter(e1);
 
-            Compte compteTraite = bank["BE01"];
+            IBanker compteTraite = bank["BE01"];
             compteTraite.Depot(1500);
 
             Console.WriteLine($"Le titulaire du compte BE01 est {compteTraite.Titulaire.Nom}.");
@@ -82,6 +82,44 @@ namespace Exo_Banque
                 compteAvecInteret.AppliquerInteret();
                 Console.WriteLine($"Le Solde du compte {numero} après intérêt est {compteAvecInteret.Solde} €.");
             }
+
+            Console.WriteLine("Quel est votre nom?");
+            string lastname = Console.ReadLine();
+            Console.WriteLine("Quel est votre prénom?");
+            string firstname = Console.ReadLine();
+            Console.WriteLine("Quelle est la date de naissance (formatée : yyyy-mm-dd) ?");
+            DateTime birth_date = DateTime.Parse(Console.ReadLine());
+
+            Personne client = new Personne() { Nom = lastname, Prenom = firstname, DateNaiss = birth_date };
+
+            client = bank[client];
+
+            ICustomer[] mesComptes = bank.ComptesClient(client);
+            Console.WriteLine("Veuillez sélectionner un compte par son numéro : ");
+            for(int i = 0; i < mesComptes.Length; i++)
+            {
+                ICustomer compte = mesComptes[i];
+                Console.WriteLine($"- Compte {i+1} : {compte.Solde} €.");
+            }
+            int choix = int.Parse(Console.ReadLine());
+            ICustomer compteATraiter = mesComptes[choix - 1];
+            Console.WriteLine("Que voulez-vous faire ?");
+            Console.WriteLine("1 - Dépot");
+            Console.WriteLine("2 - Retrait");
+            string input = Console.ReadLine();
+            Console.WriteLine("Quel montant ?");
+            double montant = double.Parse(Console.ReadLine());
+            switch (input)
+            {
+                case "1":
+                    compteATraiter.Depot(montant);
+                    break;
+                default:
+                    compteATraiter.Retrait(montant);
+                    break;
+            }
+            Console.WriteLine($"Votre nouveau solde est de {compteATraiter.Solde} €");
+
         }
     }
 }

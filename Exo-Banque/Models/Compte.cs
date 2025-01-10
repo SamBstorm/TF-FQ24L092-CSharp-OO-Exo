@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exo_Banque.Models
 {
-    public abstract class Compte
+    public abstract class Compte : IBanker
     {
         public string Numero { get; set; }
         public double Solde { get; private set; }
